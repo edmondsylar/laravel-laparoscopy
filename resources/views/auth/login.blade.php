@@ -17,6 +17,7 @@
                     </div>
                     <h3 class="mb-4">Login</h3>
                     <form method="POST" action="{{ route('login') }}">
+                        @csrf
                         <div class="input-group mb-3">
                             <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             @error('email')
