@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserContent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,11 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (Auth::user()){
-        return view('welcome');
+        redirect('/home');
     }
-    return redirect(route('login'));
+
+    return view('welcome');
 });
 
-Auth::routes();
+// alternate route for loged in users to see the homepage.
+Route::get('/welcome', function(){
+    return view('welcome');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Other system routes defined
+Auth::routes();
+Route::get('/home', 'HomeController@index');
+Route::resource('/user_sessions', 'UserContent');
