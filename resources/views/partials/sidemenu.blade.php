@@ -31,7 +31,7 @@
                 <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
                     <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Practice Area</span></a>
                     <ul class="pcoded-submenu">
-                        <li class=""><a href="{{ url('/user_sessions') }}" class="">Practice Dashboard</a></li>
+                        <li class=""><a href="{{ url('/practice_dashboard') }}" class="">Practice Dashboard</a></li>
                         <li class=""><a href="{{ url('/user_sessions') }}" class="">In Review</a></li>
                         <li class=""><a href="{{ url('/user_sessions') }}" class="">Completed</a></li>
                     </ul>
@@ -41,7 +41,7 @@
                 <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
                     <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Modules</span></a>
                     <ul class="pcoded-submenu">
-                        <li class=""><a href="{{ url('/user_sessions') }}" class="">All Modules</a></li>
+                        <li class=""><a href="{{ url('/modules') }}" class="">All Modules</a></li>
                         <li class=""><a href="{{ url('/user_sessions') }}" class="">Active Modules</a></li>
                     </ul>
                 </li>

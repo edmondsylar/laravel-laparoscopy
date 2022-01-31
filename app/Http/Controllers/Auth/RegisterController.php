@@ -69,5 +69,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        // here we backedn with the ID of the user thet has been created so that a user of the same ID 
+        // is created in the backend as well
+        // $curl
     }
 }

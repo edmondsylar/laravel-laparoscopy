@@ -17,7 +17,7 @@
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:" data-toggle="dropdown">Quick Actions</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="javascript:">New Session</a></li>
+                    <li><a class="dropdown-item" data-toggle="modal" data-target="#exampleModal" href="javascript:">New Session</a></li>
 
                     {{-- this here we are going to querry the external API for our surgTruc simulation. --}}
 
@@ -122,3 +122,35 @@
         </ul>
     </div>
 </header>
+
+{{-- This is going to be our model for creating a new Training session. --}}
+<!-- Button trigger modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Session</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            we can or should now attach the variabled we need to create a new session.
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-sm btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<Script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+</Script>

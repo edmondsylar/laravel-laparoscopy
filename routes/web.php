@@ -32,3 +32,15 @@ Route::get('/welcome', function(){
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::resource('/user_sessions', 'UserContent');
+
+// pracice dashboard urls
+// Route::get('/practice_dashboard', 'Practice/DashboardController');
+// this is just a conteporary fix for what I need, 
+Route::get('practice_dashboard', function(){
+    // we can define a few things we need to get the practice dashboard and directly pass them to this view.
+
+    return view('practice.dashboard');
+});
+
+Route::get('modules', function(){ return view('modules.dashboad'); });
+
