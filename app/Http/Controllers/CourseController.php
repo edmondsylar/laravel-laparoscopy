@@ -2,23 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PracticeSession;
+use App\Models\courses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserContent extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
+        $courses = courses::all();
 
-        return view('user_content.recorded_sessions')
-            ->with('veiw_name', 'User Sessions');
+
+        return view('courses.index')
+            ->with('courses', $courses);;
     }
 
     /**
@@ -29,7 +37,6 @@ class UserContent extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -41,15 +48,18 @@ class UserContent extends Controller
     public function store(Request $request)
     {
         //
-        $_ = new PracticeSession();
-        $_->name = $request->input('session_name');
-        $_->module_id = $request->input('module');
-        $_->note = $request->input('note');
-        $_->created_by = Auth::user()->id;
 
-        if($_->save()){
-            return redirect('/user_sessions');
+        // return $request;
+        $course = courses::create([
+            'course_name'=>$request->input('course_name'),
+            'description'=>$request->input('description'),
+            'created_by'=>Auth::user()->id
+        ]);
+
+        if($course->save()){
+            return back();
         }
+
 
         return $request;
     }
@@ -63,6 +73,10 @@ class UserContent extends Controller
     public function show($id)
     {
         //
+        $course = courses::find($id);
+
+        return view('courses.course_modules')
+            ->with('course', $course);
     }
 
     /**

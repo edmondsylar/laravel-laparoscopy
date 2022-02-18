@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PracticeSession;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class UserContent extends Controller
+class PracticeDasboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,18 @@ class UserContent extends Controller
     public function index()
     {
         //
+        return view('practice.dashboard');
+    }
 
-        return view('user_content.recorded_sessions')
-            ->with('veiw_name', 'User Sessions');
+    public function practice_session(){
+        // $_get = 
+
+        return view('practice.session');
+    }
+
+    public function create_session($Request, $request){
+        // $_;
+
     }
 
     /**
@@ -29,7 +36,6 @@ class UserContent extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -41,17 +47,6 @@ class UserContent extends Controller
     public function store(Request $request)
     {
         //
-        $_ = new PracticeSession();
-        $_->name = $request->input('session_name');
-        $_->module_id = $request->input('module');
-        $_->note = $request->input('note');
-        $_->created_by = Auth::user()->id;
-
-        if($_->save()){
-            return redirect('/user_sessions');
-        }
-
-        return $request;
     }
 
     /**

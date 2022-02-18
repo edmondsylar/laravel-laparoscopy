@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\module;
 
 class ModulesController extends Controller
 {
@@ -14,7 +15,9 @@ class ModulesController extends Controller
     public function index()
     {
         //
-        return view('modules.dashboad');
+        $modules = module::all();
+        return view('modules.dashboad')
+            ->with('modules', $modules);
     }
 
     /**
@@ -36,6 +39,14 @@ class ModulesController extends Controller
     public function store(Request $request)
     {
         //
+        $con = new module();
+
+        $con->name = $request->input('module_name');
+        $con->description = $request->input('module_description');
+
+        if ($con->save()) {
+             return redirect('/modules');
+        }
     }
 
     /**
@@ -81,5 +92,19 @@ class ModulesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // Custome function bergin from here.
+    public function update_module_status(Request $request){
+        
+        $status = $request->input('status');
+        $mod = $request->input('module');
+
+        $module = module::find($mod);
+        // update the status in the table.
+        $module->status = $status;
+        if($module->save()){
+            return back();
+        };
     }
 }

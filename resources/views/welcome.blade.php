@@ -3,8 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/style.css">
+        {{-- <link rel="stylesheet" href="assets/css/style.css"> --}}
 
-        <title>Laravel</title>
+        <title>Lap dashboard.</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -31,13 +33,13 @@
                         {{-- <button class="btn btn-small btn-primary">Dashboard</button> --}}
 
                     @else
-                        <button class="btn btn-primary btn-sm">
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500">Log in</a>
+                        <button class="btn btn-primary btn-xs">
+                            <a href="{{ route('login') }}" class="">Log in</a>
                         </button>
 
                         @if (Route::has('register'))
                             <button class="btn btn-primary btn-sm">
-                            <a href="{{ route('register') }}" class="btn btn-primary btn-sm ml-4 text-sm text-gray-700 dark:text-gray-500">Register</a></button>
+                            <a href="{{ route('register') }}" class="">Register</a></button>
                         @endif
                     @endauth
                 </div>

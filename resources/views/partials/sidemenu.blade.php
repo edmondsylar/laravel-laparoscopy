@@ -39,18 +39,24 @@
 
 
                 <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
-                    <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Modules</span></a>
+                    <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-book"></i></span><span class="pcoded-mtext">Courses</span></a>
                     <ul class="pcoded-submenu">
-                        <li class=""><a href="{{ url('/modules') }}" class="">All Modules</a></li>
-                        <li class=""><a href="{{ url('/user_sessions') }}" class="">Active Modules</a></li>
+                        <li class=""><a href="{{ url('/courses') }}" class="">All Course</a></li>
+                        <!-- <li class=""><a href="{{ url('/course_modules') }}" class="">Active Modules</a></li> -->
                     </ul>
                 </li>
 
 
                 <!-- This should be the last item on the menu. -->
+                <li data-username="" class="nav-item">
+                    <a href="{{ url('/topScalpel') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-cup"></i></span><span class="pcoded-mtext">TopScalpel</span></a>
+                </li>
+
                 <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
                     <a href="{{ url('/faqs') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">FAQs</span></a>
                 </li>
+
+                
 
             </ul>
         </div>

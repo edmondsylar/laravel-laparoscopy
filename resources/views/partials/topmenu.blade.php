@@ -123,6 +123,11 @@
     </div>
 </header>
 
+<?php 
+    $modules = DB::select('select * from modules');
+    // var_dump($modules);
+
+?>
 {{-- This is going to be our model for creating a new Training session. --}}
 <!-- Button trigger modal -->
   <!-- Modal -->
@@ -136,13 +141,26 @@
           </button>
         </div>
         <div class="modal-body">
-            we can or should now attach the variabled we need to create a new session.
+            <form action="{{ url('/user_sessions')}}" method="POST" class="form-group">
+                @csrf
+                <label for="Name"> Session Name</label>
+                <input required type="text" name="session_name" value="<?php echo "session_".uniqid() ?>" id="" class="form-control">
 
+                <label for="module">Select Module</label> 
+                <select required name="module" id="" class="form-control">
+                    <option value="" selected disabled class="form-control">Select module</option>
+                    @foreach ($modules as $module )
+                        <option value="{{ $module->id; }}"> {{ $module->name; }} </option>
+                    @endforeach             
+                </select>
 
+                <label for="Note"> Note (Optional) </label>
+                <textarea name="note" id="" cols="30" rows="10" class="form-control"></textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-sm btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-sm btn-primary">Save changes</button>
+        </form>
         </div>
       </div>
     </div>

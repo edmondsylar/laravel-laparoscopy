@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\module;
+use App\Models\PracticeSession;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $modules = module::all();
+        $no_sessions = PracticeSession::where('created_by', Auth::user()->id)->count();
+        // Str::random($length)
+
+        //  lets make sure there are some modules in the System before its'actually used.
+        return view('home')
+            ->with('no_sessions', $no_sessions)
+            ->with('modules', $modules);
     }
 }

@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class module extends Model
+class PracticeSession extends Model
 {
     use HasFactory;
-    // protected = ['module', 'status']
 }

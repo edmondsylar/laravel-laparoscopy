@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserContent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,11 +37,16 @@ Route::resource('/user_sessions', 'UserContent');
 // pracice dashboard urls
 // Route::get('/practice_dashboard', 'Practice/DashboardController');
 // this is just a conteporary fix for what I need, 
-Route::get('practice_dashboard', function(){
-    // we can define a few things we need to get the practice dashboard and directly pass them to this view.
+// Route::get('practice_dashboard', function(){
+//     // we can define a few things we need to get the practice dashboard and directly pass them to this view.
 
-    return view('practice.dashboard');
-});
+//     return view('practice_dashboard');
+// });
 
-Route::get('modules', function(){ return view('modules.dashboad'); });
+Route::resource('practice_dashboard', 'PracticeDasboardController');
+Route::resource('modules', 'ModulesController');
+Route::post('update_module_status', 'ModulesController@update_module_status');
 
+// course route.
+Route::resource('courses', 'CourseController');
+Route::resource('course_module', 'CourseModuleController');
