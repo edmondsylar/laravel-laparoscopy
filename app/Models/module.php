@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class module extends Model
 {
     use HasFactory;
-    // protected = ['module', 'status']
+    protected $fillable = ['module', 'status'];
 }

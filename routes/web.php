@@ -50,3 +50,4 @@ Route::post('update_module_status', 'ModulesController@update_module_status');
 // course route.
 Route::resource('courses', 'CourseController');
 Route::resource('course_module', 'CourseModuleController');
+

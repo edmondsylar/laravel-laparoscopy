@@ -43,9 +43,9 @@
 	</div>
 
 	<div class="row">
-        @for ($i = 0; $i < 5; $i++)
+        @foreach ($modules as $module)
             @include('modules.module')
-        @endfor
+        @endforeach
     </div>
 
 
@@ -65,6 +65,7 @@
 	            <div class="form-group">
 	              <label for="recipient-name" class="col-form-label">Module Name:</label>
 	              <input type="text" placeholder="course module name" name="module_name" class="form-control" id="recipient-name">
+                  <input type="hidden" name="course_id" value="{{ $course->id }}">
 	            </div>
 
 	            <div class="form-group">

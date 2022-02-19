@@ -146,11 +146,11 @@
                 <label for="Name"> Session Name</label>
                 <input required type="text" name="session_name" value="<?php echo "session_".uniqid() ?>" id="" class="form-control">
 
-                <label for="module">Select Module</label> 
+                <label for="module">Select Course</label> 
                 <select required name="module" id="" class="form-control">
                     <option value="" selected disabled class="form-control">Select module</option>
-                    @foreach ($modules as $module )
-                        <option value="{{ $module->id; }}"> {{ $module->name; }} </option>
+                    @foreach ($courses as $course )
+                        <option value="{{ $course->id; }}"> {{ $course->course_name; }} </option>
                     @endforeach             
                 </select>
 

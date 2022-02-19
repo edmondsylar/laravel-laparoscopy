@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\course_module;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseModuleController extends Controller
 {
@@ -35,7 +37,18 @@ class CourseModuleController extends Controller
     public function store(Request $request)
     {
         //
+        $create  = course_module::create([
+            'course_id' => $request->input('course_id'),
+            'module_name' => $request->input('module_name'),
+            'video_src' => $request->input('video_src'),
+            'description' => $request->input('module_description'),
+            'created_by'=>Auth::user()->id
+        ]);
 
+        if($create->save()){
+            return back();
+        }
+    
         return $request;
     }
 
