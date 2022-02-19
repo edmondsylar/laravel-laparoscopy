@@ -16,9 +16,9 @@ class CreateAttemptsTable extends Migration
         Schema::create('attempts', function (Blueprint $table) {
             $table->id();
             $table->string('session_name');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->string('course_id');
-            $table->string('course_module');
+            $table->string('course_module')->nullable();
 
             $table->string('created_by');
             $table->timestamps();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attempt;
 use App\Models\courses;
 use App\Models\module;
 use App\Models\PracticeSession;
@@ -29,7 +30,7 @@ class HomeController extends Controller
     {
 
         $modules = module::all();
-        $no_sessions = PracticeSession::where('created_by', Auth::user()->id)->count();
+        $no_sessions = Attempt::where('created_by', Auth::user()->id)->count();
         // Str::random($length)
         $courses = courses::all();
 

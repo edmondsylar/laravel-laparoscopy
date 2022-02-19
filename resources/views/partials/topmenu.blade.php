@@ -124,7 +124,7 @@
 </header>
 
 <?php 
-    $modules = DB::select('select * from modules');
+    $courses = DB::select('select * from courses');
     // var_dump($modules);
 
 ?>
@@ -146,7 +146,7 @@
                 <label for="Name"> Session Name</label>
                 <input required type="text" name="session_name" value="<?php echo "session_".uniqid() ?>" id="" class="form-control">
 
-                <label for="module">Select Course</label> 
+                <label for="course">Select Course</label> 
                 <select required name="course" id="" class="form-control">
                     <option value="" selected disabled class="form-control">Select Course</option>
                     @foreach ($courses as $course )
@@ -155,7 +155,7 @@
                 </select>
 
                 <label for="Note"> Note (Optional) </label>
-                <textarea name="note" id="" cols="30" rows="10" class="form-control"></textarea>
+                <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>

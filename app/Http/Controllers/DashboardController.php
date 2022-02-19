@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UserContent;
 
 use App\Http\Controllers\Controller;
+use App\Models\courses;
 use Illuminate\Http\Request;
 
 class Dashboard extends Controller
@@ -16,8 +17,10 @@ class Dashboard extends Controller
     {
         //we are going to get all the videos that the logged in user
         // has created.
+        $courses = courses::all();
 
-        return view('practice.dashboard');
+        return view('practice.dashboard')
+            ->with('courses', $courses);
     }
 
     /**

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\PracticeSession;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Attempt;
+use App\Models\courses;
+use App\Models\course_module;
 
 class UserContent extends Controller
 {
@@ -39,8 +42,20 @@ class UserContent extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        
+    {   
+        // now here we are going to first create our session|Attempt.
+        $_ = Attempt::create([
+            'session_name' => $request->input('session_name'),
+            'description' => $request->input('description'),
+            'course_id' => $request->input('course'),
+            // 'course_module' => $request->input(''),
+            'created_by' => Auth::user()->id
+        ]);
+
+        if ($_->save()) {
+            // code...
+            return redirect('/user_sessions/'.$_->id);
+        };
         return $request;
     }
 
@@ -53,6 +68,16 @@ class UserContent extends Controller
     public function show($id)
     {
         //
+        $session = Attempt::find($id);
+        $course = courses::find($session->id);
+        $modules = course_module::where('course_id', $id)->get();
+
+
+        // return [$course, $modules];
+        return view('practice.session')
+            ->with('modules', $modules)
+            ->with('session', $session)
+            ->with('course', $course);
     }
 
     /**
