@@ -147,8 +147,8 @@
                 <input required type="text" name="session_name" value="<?php echo "session_".uniqid() ?>" id="" class="form-control">
 
                 <label for="module">Select Course</label> 
-                <select required name="module" id="" class="form-control">
-                    <option value="" selected disabled class="form-control">Select module</option>
+                <select required name="course" id="" class="form-control">
+                    <option value="" selected disabled class="form-control">Select Course</option>
                     @foreach ($courses as $course )
                         <option value="{{ $course->id; }}"> {{ $course->course_name; }} </option>
                     @endforeach             

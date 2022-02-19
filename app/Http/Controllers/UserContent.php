@@ -40,17 +40,7 @@ class UserContent extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $_ = new PracticeSession();
-        $_->name = $request->input('session_name');
-        $_->module_id = $request->input('module');
-        $_->note = $request->input('note');
-        $_->created_by = Auth::user()->id;
-
-        if($_->save()){
-            return redirect('/user_sessions');
-        }
-
+        
         return $request;
     }
 

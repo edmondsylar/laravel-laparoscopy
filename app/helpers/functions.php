@@ -1,22 +1,19 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+
     function module_rating_by_usage(){
 
         return 'module';
     }
 
-    function forge_string(){
+    function _course($id){
 
-        $_ = Str::random(25);
-        $string = dd($_);
+        $course = DB::select('select * from courses where id = :id limit=1', ['id'=> $id]);
 
-        return $string;
+        // return the course data 
+        return $course;
     }
 
 
-
-
-
 ?>
-
-<!-- 192087 -->

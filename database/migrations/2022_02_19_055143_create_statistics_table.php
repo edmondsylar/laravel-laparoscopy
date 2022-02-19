@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateStatisticsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('statistics', function (Blueprint $table) {
+            $table->id();
+            $table->string('handedness')->default(0);
+            $table->string('distance')->default(0);
+            $table->string('speed')->default(0);
+            $table->string('acceleration')->default(0);
+            $table->string('motion_smoothness')->default(0);
+            
+            $table->string('created_by');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('statistics');
+    }
+}
