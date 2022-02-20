@@ -52,6 +52,7 @@ class UserContent extends Controller
             'created_by' => Auth::user()->id
         ]);
 
+        
         if ($_->save()) {
             // code...
             return redirect('/user_sessions/'.$_->id);
@@ -69,11 +70,11 @@ class UserContent extends Controller
     {
         //
         $session = Attempt::find($id);
-        $course = courses::find($session->id);
-        $modules = course_module::where('course_id', $id)->get();
+        $course = courses::find($session->course_id);
+        $modules = course_module::where('course_id', $session->course_id)->get();
 
 
-        // return [$course, $modules];
+        // return [$modules];
         return view('practice.session')
             ->with('modules', $modules)
             ->with('session', $session)

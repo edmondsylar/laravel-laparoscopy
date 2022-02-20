@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-	{{-- <button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#module_add">
-        Add Course module
-    </button> --}}
+	{{-- @php
+		$course = DB::select('select * ')
+	@endphp --}}
 
 	<div class="row" style="margin-top: +15px;">
 	    <div class="col-xl-8 col-md-8">

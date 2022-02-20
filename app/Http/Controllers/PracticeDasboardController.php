@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Attempt;
+use Illuminate\Support\Facades\Auth;
 
 class PracticeDasboardController extends Controller
 {
@@ -14,7 +16,11 @@ class PracticeDasboardController extends Controller
     public function index()
     {
         //
-        return view('practice.dashboard');
+        $attempts = Attempt::where('created_by', Auth::user()->id)->get();
+        // $attempts = Attempt::where('created_by', Auth::user()->id);
+
+        return view('practice.dashboard')
+            ->with('attempts', $attempts);
     }
 
     public function practice_session(){
