@@ -7,10 +7,23 @@ use Illuminate\Support\Facades\DB;
         return 'module';
     }
 
+    function get_module($id){
+        // lets create a backup for empty responses;
+        $bk = array('module_name'=>'pending, attempt a module to refect');
+
+        $module = DB::table('course_modules')
+            ->where('id', $id)
+            ->get();
+
+        if(isset($module[0])){
+            return $module[0];
+        }
+        return $bk;
+    }
+
     function _course($id){
 
         $course = DB::select('select * from courses where id = :id limit=1', ['id'=> $id]);
-
         // return the course data 
         return $course;
     }

@@ -18,6 +18,7 @@ class CreateAttemptsTable extends Migration
             $table->string('session_name');
             $table->string('description')->nullable();
             $table->string('course_id');
+            $table->string('attempt_location')->nullable();
             $table->string('course_module')->nullable();
 
             $table->string('created_by');

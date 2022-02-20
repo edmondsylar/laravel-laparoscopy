@@ -4,6 +4,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserContent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,6 @@ Route::post('update_module_status', 'ModulesController@update_module_status');
 Route::resource('courses', 'CourseController');
 Route::resource('course_module', 'CourseModuleController');
 
+
+// lets define the route for recording the video from here.
+Route::resource('api/analytics', 'ApiController');

@@ -30,6 +30,9 @@ class Recording(Resource):
         while True:
             ret, frame = vs.read()
             
+            # flip the frame to be upright.
+            frame = cv2.flip(frame, 1)
+
             # write to the output video here.
             out.write(frame)
 
@@ -51,7 +54,7 @@ class Recording(Resource):
         if args['_session']:
             name = args['_session']
             recording = self.__rec(name)
-            return {'response Name':recording}
+            return recording
             # pass
 
 class Index(Resource):

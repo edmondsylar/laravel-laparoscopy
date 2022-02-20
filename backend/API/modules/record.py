@@ -25,7 +25,10 @@ def __rec(name):
     # iterate over the  frame.
     while True:
         ret, frame = vs.read()
-        
+
+        # we need to flip the frame before we start recording
+        frame = cv2.flip(frame, 1);
+
         # write to the output video here.
         out.write(frame)
 

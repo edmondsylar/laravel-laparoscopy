@@ -1,11 +1,7 @@
 @extends('layouts.app')
 @section('content')
-	{{-- @php
-		$course = DB::select('select * ')
-	@endphp --}}
-
 	<div class="row" style="margin-top: +15px;">
-	    <div class="col-xl-8 col-md-8">
+	    <div class="col-xl-8 col-md-8"> 
 	        <div class="card card-event">
 	            <div class="card-block">
 	                <div class="row align-items-center justify-content-center">
@@ -38,8 +34,14 @@
 		                   <ul>
                                <li><b>Name:</b> {{ $session->session_name }} </li>
                                <li><b>Course: {{ $course->course_name }} </b> </li>
-                               <li><b>Module:</b> pending</li>
-                               {{-- <li>Description: {{ $modules }} </li> --}}
+
+                               {{-- <li><b>Module:</b> 
+									@php
+										$module = get_module($session->course_module);
+									@endphp
+									{{ $module->module_name }}
+								</li> --}}
+                              
                            </ul>
 		                </p>
 		        </div>
